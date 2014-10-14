@@ -22,7 +22,7 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'minitest'
+  gem 'minitest', '~> 4.3.2'
   gem 'wwtd'
 
   # supported database adapters
