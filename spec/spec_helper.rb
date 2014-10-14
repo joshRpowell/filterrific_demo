@@ -5,14 +5,8 @@ require 'bundler/setup'
 require 'minitest/autorun'
 
 
-# Connect to specified database
-configs = YAML.load_file('spec/database.yml')
-ActiveRecord::Base.configurations = configs
-db_name = ENV['DB'] || 'sqlite'
-ActiveRecord::Base.establish_connection(db_name.to_sym)
-ActiveRecord::Base.default_timezone = :utc
 # Load schema into in_memory database
-if 'sqlite' == db_name
+if 'sqlite' == ENV['DB']
   puts "creating sqlite in memory database"
   load "#{Rails.root}/db/schema.rb"
 end
