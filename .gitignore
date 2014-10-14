@@ -62,3 +62,6 @@ pickle-email-*.html
 **.swp
 
 /doc/scratchpad.md
+
+
+Gemfile.lock
