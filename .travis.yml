@@ -1,6 +1,9 @@
 language: ruby
 
-script: 'bundle exec rake test'
+script:
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rake test
 
 rvm:
   - 1.9.3
@@ -16,9 +19,6 @@ env:
 before_script:
   - mysql -e 'create database filterrific_demo_test;'
   - psql -c 'create database filterrific_demo_test;' -U postgres
-  - rake db:create
-  - rake db:migrate
-  - rake db:test:prepare
 
 branches:
   except:
