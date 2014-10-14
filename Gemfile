@@ -5,20 +5,30 @@ gem 'rails', '4.0.10'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass'
 gem 'chardinjs-rails'
-gem 'filterrific', '~> 1.3.0'
+gem 'filterrific' #, path: '../filterrific'
 gem 'haml-rails'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 gem 'jquery-rails'
 gem 'pg'
 gem 'random_data'
 gem 'thin'
-gem 'turbolinks'
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '~> 4.0.2'
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.3.0'
+  gem 'sass-rails'
+  gem 'uglifier'
+end
+gem 'coffee-rails' # specify in default group to avoid autoload warnings on tests
+
+group :development, :test do
+  gem 'wwtd'
+
+  # supported database adapters
+  # gem 'pg' # already specified in default group higher up
+  gem 'sqlite3'
+  gem 'mysql'
+  gem 'mysql2'
 end
