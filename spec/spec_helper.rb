@@ -11,6 +11,11 @@ ActiveRecord::Base.configurations = configs
 db_name = ENV['DB'] || 'sqlite'
 ActiveRecord::Base.establish_connection(db_name.to_sym)
 ActiveRecord::Base.default_timezone = :utc
+# Load schema into in_memory database
+if 'sqlite' == db_name
+  puts "creating sqlite in memory database"
+  load "#{Rails.root}/db/schema.rb"
+end
 
 
 # Allow controller specs with MiniTest
