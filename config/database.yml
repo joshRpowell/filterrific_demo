@@ -18,7 +18,7 @@ mysql2: &mysql2
 postgresql: &postgresql
   adapter: postgresql
   database: filterrific_demo_<%= Rails.env %>
-  username: postgres
+  # username: postgres
   encoding: utf8
 
 defaults: &defaults
